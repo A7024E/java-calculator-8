@@ -9,14 +9,13 @@ public class Separator {
     private static final String CUSTOM_PATTERN = "^//(.*)\\\\n(.*)";
     private static final String DEFAULT_PATTERN = "[,:]";
 
+
     public static String[] splitByDelimiter(String input) {
         Matcher matcher = compliMatcher(input);
-        if (matcher.find()) {
             if (isFindMatcher(matcher)) {
                 String delimiter = findCustomDelimiter(matcher);
-                splitByCustomDelimiter(matcher, delimiter);
+                return splitByCustomDelimiter(matcher, delimiter);
             }
-        }
         return splitByDefaultDelimiter(input);
     }
 
