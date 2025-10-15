@@ -10,8 +10,12 @@ public class Separator {
 
     public static void main(String[] args) {
         String input = Console.readLine();
-        splitByDelimiter(input);
+        String[] strings = splitByDelimiter(input);
+        for (String s : strings) {
+            System.out.println(s);
+        }
     }
+
     public static String[] splitByDelimiter(String input) {
         Matcher matcher = compliMatcher(input);
         if (isFindMatcher(matcher)) {
@@ -25,17 +29,6 @@ public class Separator {
         validateDefaultDelimiter(input);
         return input.split(DEFAULT_PATTERN);
     }
-
-    private static void validateDefaultDelimiter(String input) {
-        if(isDefaultDelimiterContains(input)) {
-            throw new IllegalArgumentException("유효하지 않는 입력입니다.");
-        }
-    }
-
-    private static boolean isDefaultDelimiterContains(String input) {
-        return !input.contains(",") && !input.contains(":");
-    }
-
 
     private static String[] splitByCustomDelimiter(Matcher matcher, String delimiter) {
         return findDelimitedValues(matcher).split(delimiter);
@@ -59,6 +52,24 @@ public class Separator {
 
     private static boolean isFindMatcher(Matcher matcher) {
         return matcher.find();
+    }
+
+    private static void validateDefaultDelimiter(String input) {
+        if (isDefaultDelimiterContains(input)) {
+            throw new IllegalArgumentException("기본 구분자가 없습니다.");
+        }
+
+        if (isDefunctDelimiterMatches(input)) {
+            throw new IllegalArgumentException("기본 구분자를 확인해 주세요");
+        }
+    }
+
+    private static boolean isDefaultDelimiterContains(String input) {
+        return !input.contains(",") && !input.contains(":");
+    }
+
+    private static boolean isDefunctDelimiterMatches(String input) {
+        return input.matches(".*[^0-9,:].*");
     }
 }
 
