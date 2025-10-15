@@ -8,13 +8,6 @@ public class Separator {
     private static final String CUSTOM_PATTERN = "^//(.*)\\\\n(.*)";
     private static final String DEFAULT_PATTERN = "[,:]";
 
-    public static void main(String[] args) {
-        String input = Console.readLine();
-        String[] strings = splitByDelimiter(input);
-        for (String s : strings) {
-            System.out.println(s);
-        }
-    }
 
     public static String[] splitByDelimiter(String input) {
         Matcher matcher = compliMatcher(input);
@@ -55,22 +48,20 @@ public class Separator {
     }
 
     private static void validateDefaultDelimiter(String input) {
-        if (isDefaultDelimiterContains(input)) {
+        if (!isDefaultDelimiterContains(input) && !isValueBlank(input)) {
             throw new IllegalArgumentException("기본 구분자가 없습니다.");
         }
+    }
 
-        if (isDefunctDelimiterMatches(input)) {
-            throw new IllegalArgumentException("기본 구분자를 확인해 주세요");
-        }
+    private static boolean isValueBlank(String input) {
+        return input.isBlank();
     }
 
     private static boolean isDefaultDelimiterContains(String input) {
-        return !input.contains(",") && !input.contains(":");
+        return input.contains(",") && input.contains(":");
     }
 
-    private static boolean isDefunctDelimiterMatches(String input) {
-        return input.matches(".*[^0-9,:].*");
-    }
+
 }
 
 
