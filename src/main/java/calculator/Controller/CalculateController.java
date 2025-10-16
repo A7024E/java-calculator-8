@@ -13,7 +13,7 @@ public class CalculateController {
         this.outputView = new OutputView();
     }
 
-    public void run(){
+    public void run() {
         processCalculation(insertInputs());
     }
 

@@ -42,5 +42,4 @@ public class Calculator {
             throw new IllegalArgumentException("커스텀 구분자 및 기본 구분자를 정확하게 확인 후 다시 입력해 주세요");
         }
     }
-
 }

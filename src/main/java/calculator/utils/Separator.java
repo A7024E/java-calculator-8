@@ -8,7 +8,6 @@ public class Separator {
     private static final String DEFAULT_PATTERN = "[,:]";
     private static final String NUMBER_PATTERN = "\\d+";
 
-
     public static String[] splitByDelimiter(String input) {
         Matcher matcher = compliMatcher(input);
         if (isFindMatcher(matcher)) {
@@ -53,7 +52,6 @@ public class Separator {
     private static boolean isFindMatcher(Matcher matcher) {
         return matcher.find();
     }
-
 }
 
 
