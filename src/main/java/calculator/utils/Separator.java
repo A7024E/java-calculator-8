@@ -1,6 +1,5 @@
 package calculator.utils;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -9,17 +8,6 @@ public class Separator {
     private static final String DEFAULT_PATTERN = "[,:]";
     private static final String NUMBER_PATTERN = "\\d+";
 
-    public static void main(String[] args) {
-        String input = Console.readLine();
-        String[] strings = splitByDelimiter(input);
-
-        for (String string : strings) {
-            System.out.println(string);
-        }
-
-
-
-    }
 
     public static String[] splitByDelimiter(String input) {
         Matcher matcher = compliMatcher(input);
