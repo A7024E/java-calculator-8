@@ -7,7 +7,19 @@ import java.util.regex.Pattern;
 public class Separator {
     private static final String CUSTOM_PATTERN = "^//(.*)\\\\n(.*)";
     private static final String DEFAULT_PATTERN = "[,:]";
+    private static final String NUMBER_PATTERN = "\\d+";
 
+    public static void main(String[] args) {
+        String input = Console.readLine();
+        String[] strings = splitByDelimiter(input);
+
+        for (String string : strings) {
+            System.out.println(string);
+        }
+
+
+
+    }
 
     public static String[] splitByDelimiter(String input) {
         Matcher matcher = compliMatcher(input);
@@ -18,7 +30,15 @@ public class Separator {
         return splitByDefaultDelimiter(input);
     }
 
+    private static boolean isNumeric(String input) {
+        return input.matches(NUMBER_PATTERN);
+    }
+
     private static String[] splitByDefaultDelimiter(String input) {
+
+        if (isNumeric(input)) {
+            return new String[]{input};
+        }
         validateDefaultDelimiter(input);
         return input.split(DEFAULT_PATTERN);
     }
@@ -58,10 +78,8 @@ public class Separator {
     }
 
     private static boolean isDefaultDelimiterContains(String input) {
-        return input.contains(",") && input.contains(":");
+        return input.contains(",") || input.contains(":");
     }
-
-
 }
 
 
