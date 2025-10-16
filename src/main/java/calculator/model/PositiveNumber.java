@@ -14,13 +14,16 @@ public class PositiveNumber {
     }
 
     private void validateNumber(int number) {
-        if(isPositiveNumberRange(number)) {
+        if (isPositiveNumberRange(number)) {
             throw new IllegalArgumentException("숫자는 양수만 입력 가능합니다");
         }
     }
 
-    private boolean isPositiveNumberRange(int number){
+    private boolean isPositiveNumberRange(int number) {
         return number < 0;
     }
 
+    public int sumNumbers(int sum) {
+        return sum + number;
+    }
 }
