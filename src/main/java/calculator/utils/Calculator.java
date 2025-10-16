@@ -1,16 +1,11 @@
 package calculator.utils;
 
 import calculator.model.PositiveNumber;
-import camp.nextstep.edu.missionutils.Console;
 
 public class Calculator {
-    public static void main(String[] args) {
-        String input = Console.readLine();
-        splitCalculator(input);
-    }
 
-    public static int splitCalculator(String input) {
-        if(isNull(input) || isEmpty(input)){
+    public static int splitSumCalculator(String input) {
+        if (isNull(input) || isEmpty(input)) {
             return 0;
         }
         validateCalculator(input);
@@ -18,7 +13,7 @@ public class Calculator {
     }
 
     private static void validateCalculator(String input) {
-        if(input.contains(" ")){
+        if (input.contains(" ")) {
             throw new IllegalArgumentException("공백을 포함할 순 없습니다");
         }
     }
@@ -31,7 +26,7 @@ public class Calculator {
         return input == null;
     }
 
-    private static int calculateSum(String[] splitInput){
+    private static int calculateSum(String[] splitInput) {
         int sum = 0;
         for (String input : splitInput) {
             PositiveNumber positiveNumber = PositiveNumber.generatePositiveNumber(convertNumeric(input));
@@ -43,8 +38,7 @@ public class Calculator {
     private static int convertNumeric(String input) {
         try {
             return Integer.parseInt(input);
-
-        }catch (NumberFormatException exception){
+        } catch (NumberFormatException exception) {
             throw new IllegalArgumentException("커스텀 구분자 및 기본 구분자를 정확하게 확인 후 다시 입력해 주세요");
         }
     }
