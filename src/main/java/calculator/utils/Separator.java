@@ -66,7 +66,7 @@ public class Separator {
     }
 
     private static boolean isDefaultDelimiterContains(String input) {
-        return input.contains(",") || input.contains(":");
+        return input.contains(",") && input.contains(":");
     }
 }
 
