@@ -5,10 +5,8 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Calculator {
     public static void main(String[] args) {
-        String input =Console.readLine();
-
-        int i = splitCalculator(input);
-        System.out.println(i);
+        String input = Console.readLine();
+        splitCalculator(input);
     }
 
     public static int splitCalculator(String input) {
@@ -43,7 +41,12 @@ public class Calculator {
     }
 
     private static int convertNumeric(String input) {
-        return Integer.parseInt(input);
+        try {
+            return Integer.parseInt(input);
+
+        }catch (NumberFormatException exception){
+            throw new IllegalArgumentException("커스텀 구분자 및 기본 구분자를 정확하게 확인 후 다시 입력해 주세요");
+        }
     }
 
 }

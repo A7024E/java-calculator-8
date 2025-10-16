@@ -27,7 +27,6 @@ public class Separator {
         if (isNumeric(input)) {
             return new String[]{input};
         }
-        validateDefaultDelimiter(input);
         return input.split(DEFAULT_PATTERN);
     }
 
@@ -55,19 +54,6 @@ public class Separator {
         return matcher.find();
     }
 
-    private static void validateDefaultDelimiter(String input) {
-        if (!isDefaultDelimiterContains(input) && !isValueBlank(input)) {
-            throw new IllegalArgumentException("기본 구분자가 없습니다.");
-        }
-    }
-
-    private static boolean isValueBlank(String input) {
-        return input.isBlank();
-    }
-
-    private static boolean isDefaultDelimiterContains(String input) {
-        return input.contains(",") && input.contains(":");
-    }
 }
 
 
