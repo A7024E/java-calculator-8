@@ -3,10 +3,14 @@ package calculator.utils;
 import calculator.model.PositiveNumber;
 
 public class Calculator {
+    private static final int ZERO_VALUE = 0;
+    private static final String DELIMITER_INPUT_ERROR_MESSAGE = "커스텀 구분자 및 기본 구분자를 정확하게 확인 후 다시 입력해 주세요";
+    private static final String INVALID_WHITESPACE_EXCEPTION_MESSAGE = "공백을 포함할 순 없습니다.";
+
 
     public static int splitSumCalculator(String input) {
         if (isNull(input) || isEmpty(input)) {
-            return 0;
+            return ZERO_VALUE;
         }
         validateCalculator(input);
         return calculateSum(Separator.splitByDelimiter(input));
@@ -14,7 +18,7 @@ public class Calculator {
 
     private static void validateCalculator(String input) {
         if (isBlankContains(input)) {
-            throw new IllegalArgumentException("공백을 포함할 순 없습니다");
+            throw new IllegalArgumentException(INVALID_WHITESPACE_EXCEPTION_MESSAGE);
         }
     }
 
@@ -31,7 +35,7 @@ public class Calculator {
     }
 
     private static int calculateSum(String[] splitInput) {
-        int sum = 0;
+        int sum = ZERO_VALUE;
         for (String input : splitInput) {
             PositiveNumber positiveNumber = PositiveNumber.generatePositiveNumber(convertNumeric(input));
             sum = positiveNumber.sumNumbers(sum);
@@ -43,7 +47,7 @@ public class Calculator {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException exception) {
-            throw new IllegalArgumentException("커스텀 구분자 및 기본 구분자를 정확하게 확인 후 다시 입력해 주세요");
+            throw new IllegalArgumentException(DELIMITER_INPUT_ERROR_MESSAGE);
         }
     }
 }
