@@ -7,6 +7,8 @@ public class Separator {
     private static final String CUSTOM_PATTERN = "^//(.*)\\\\n(.*)";
     private static final String DEFAULT_PATTERN = "[,:]";
     private static final String NUMBER_PATTERN = "\\d+";
+    private static final int CUSTOM_DELIMITERS_GROUP_INDEX = 1;
+    private static final int VALUES_GROUP_INDEX = 2;
 
     public static String[] splitByDelimiter(String input) {
         Matcher matcher = compliMatcher(input);
@@ -22,7 +24,6 @@ public class Separator {
     }
 
     private static String[] splitByDefaultDelimiter(String input) {
-
         if (isNumeric(input)) {
             return new String[]{input};
         }
@@ -42,11 +43,11 @@ public class Separator {
     }
 
     private static String findDelimitedValues(Matcher matcher) {
-        return matcher.group(2);
+        return matcher.group(VALUES_GROUP_INDEX);
     }
 
     private static String findCustomDelimiter(Matcher matcher) {
-        return matcher.group(1);
+        return matcher.group(CUSTOM_DELIMITERS_GROUP_INDEX);
     }
 
     private static boolean isFindMatcher(Matcher matcher) {
