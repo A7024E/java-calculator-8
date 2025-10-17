@@ -6,7 +6,7 @@ public class Calculator {
     private static final int ZERO_VALUE = 0;
     private static final String DELIMITER_INPUT_ERROR_MESSAGE = "커스텀 구분자 및 기본 구분자를 정확하게 확인 후 다시 입력해 주세요";
     private static final String INVALID_WHITESPACE_EXCEPTION_MESSAGE = "공백을 포함할 순 없습니다.";
-
+    private static final String BLANK_VALUE =" ";
 
     public static int splitSumCalculator(String input) {
         if (isNull(input) || isEmpty(input)) {
@@ -23,6 +23,7 @@ public class Calculator {
     }
 
     private static boolean isBlankContains(String input) {
+        return input.contains(BLANK_VALUE);
     }
 
     private static boolean isEmpty(String input) {
