@@ -6,7 +6,7 @@ import calculator.view.OutputView;
 
 public class CalculateController {
     private final InputView inputView;
-    public final OutputView outputView;
+    private final OutputView outputView;
 
     public CalculateController() {
         this.inputView = new InputView();
