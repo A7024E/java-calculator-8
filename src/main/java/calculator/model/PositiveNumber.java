@@ -5,7 +5,7 @@ public class PositiveNumber {
     private final int number;
 
     private PositiveNumber(int number) {
-        validateNumber(number);
+        validatePositiveNumber(number);
         this.number = number;
     }
 
@@ -13,7 +13,7 @@ public class PositiveNumber {
         return new PositiveNumber(number);
     }
 
-    private void validateNumber(int number) {
+    private void validatePositiveNumber(int number) {
         if (isPositiveNumberRange(number)) {
             throw new IllegalArgumentException("숫자는 양수만 입력 가능합니다");
         }
