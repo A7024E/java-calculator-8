@@ -13,9 +13,13 @@ public class Calculator {
     }
 
     private static void validateCalculator(String input) {
-        if (input.contains(" ")) {
+        if (isBlankContains(input)) {
             throw new IllegalArgumentException("공백을 포함할 순 없습니다");
         }
+    }
+
+    private static boolean isBlankContains(String input) {
+        return input.contains(" ");
     }
 
     private static boolean isEmpty(String input) {
