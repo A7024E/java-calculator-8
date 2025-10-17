@@ -20,7 +20,7 @@ public class PositiveNumber {
     }
 
     private boolean isPositiveNumberRange(int number) {
-        return number < 0;
+        return number < 1;
     }
 
     public int sumNumbers(int sum) {
