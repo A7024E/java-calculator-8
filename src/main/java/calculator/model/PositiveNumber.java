@@ -9,7 +9,7 @@ public class PositiveNumber {
         this.number = number;
     }
 
-    public static PositiveNumber generatePositiveNumber(int number) {
+    public static PositiveNumber of(int number) {
         return new PositiveNumber(number);
     }
 

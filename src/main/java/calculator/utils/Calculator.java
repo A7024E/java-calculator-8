@@ -37,7 +37,7 @@ public class Calculator {
     private static int calculateSum(String[] splitInput) {
         int sum = ZERO_VALUE;
         for (String input : splitInput) {
-            PositiveNumber positiveNumber = PositiveNumber.generatePositiveNumber(convertNumeric(input));
+            PositiveNumber positiveNumber = PositiveNumber.of(convertNumeric(input));
             sum = positiveNumber.sumNumbers(sum);
         }
         return sum;
