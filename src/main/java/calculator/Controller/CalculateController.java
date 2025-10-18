@@ -25,7 +25,7 @@ public class CalculateController {
         return inputView.inputStrings();
     }
 
-    private int calculateSum(String input) {
+    private long calculateSum(String input) {
         return Calculator.splitSumCalculator(input);
     }
 }

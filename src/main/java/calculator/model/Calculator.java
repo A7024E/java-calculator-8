@@ -3,12 +3,12 @@ package calculator.model;
 import calculator.utils.Separator;
 
 public class Calculator {
-    private static final int ZERO_VALUE = 0;
+    private static final long ZERO_VALUE = 0L;
     private static final String DELIMITER_INPUT_ERROR_MESSAGE = "커스텀 구분자 및 기본 구분자를 정확하게 확인 후 다시 입력해 주세요";
     private static final String INVALID_WHITESPACE_EXCEPTION_MESSAGE = "공백을 포함할 순 없습니다.";
     private static final String BLANK_VALUE = " ";
 
-    public static int splitSumCalculator(String input) {
+    public static long splitSumCalculator(String input) {
         if (isNull(input) || input.isEmpty()) {
             return ZERO_VALUE;
         }
@@ -30,8 +30,8 @@ public class Calculator {
         return input == null;
     }
 
-    private static int calculateSum(String[] splitInput) {
-        int sum = ZERO_VALUE;
+    private static long calculateSum(String[] splitInput) {
+        long sum = ZERO_VALUE;
         for (String input : splitInput) {
             PositiveNumber positiveNumber = PositiveNumber.of(convertNumeric(input));
             sum = positiveNumber.sumNumbers(sum);
@@ -39,9 +39,9 @@ public class Calculator {
         return sum;
     }
 
-    private static int convertNumeric(String input) {
+    private static Long convertNumeric(String input) {
         try {
-            return Integer.parseInt(input);
+            return Long.parseLong(input);
         } catch (NumberFormatException exception) {
             throw new IllegalArgumentException(DELIMITER_INPUT_ERROR_MESSAGE);
         }
