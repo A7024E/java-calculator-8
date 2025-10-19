@@ -26,10 +26,21 @@ public class PositiveNumber {
     }
 
     public long sumNumbers(long sum) {
-        return sum + number;
+        validateOverFlow(sum);
+        return sum * number;
     }
 
-    private long calculateWithoutOverflow(){
+    private void validateOverFlow(long sum) {
+        if (isAdditionOverflow(sum)) {
+            throw new IllegalArgumentException(" 계산의 범위를 초과하였습니다.");
+        }
+    }
+
+    private boolean isAdditionOverflow(long sum) {
+        return sum > calculateWithoutOverflow();
+    }
+
+    private long calculateWithoutOverflow() {
         return Long.MAX_VALUE - number;
     }
 
