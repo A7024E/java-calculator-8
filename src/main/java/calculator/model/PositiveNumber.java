@@ -28,7 +28,7 @@ public class PositiveNumber {
 
     public long sumNumbers(long sum) {
         validateOverFlow(sum);
-        return sum * number;
+        return sum + number;
     }
 
     private void validateOverFlow(long sum) {
