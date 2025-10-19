@@ -28,4 +28,9 @@ public class PositiveNumber {
     public long sumNumbers(long sum) {
         return sum + number;
     }
+
+    private long calculateWithoutOverflow(){
+        return Long.MAX_VALUE - number;
+    }
+
 }
